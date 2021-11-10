@@ -57,7 +57,7 @@ def button():
         else:
             x += 80
         if x+w > mouse[0] > x and y+h > mouse[1] > y:
-            if click[0] == 1:
+            if click == True:
                 base[i] = orange
 
 def result(res,colour):
@@ -134,6 +134,9 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             quit()
+
+        if event.type == pygame.MOUSEBUTTONUP:
+            click = True
         
         if 750 > mouse[0] > 550 and 210 > mouse[1] > 110:
             pygame.draw.rect(gameDisplay,orange,(550,110,200,100))
@@ -144,7 +147,7 @@ while True:
             gameDisplay.blit(txt, TextRect)
             pygame.display.update()
 
-            if click[0]==1:
+            if click == True:
                 default()
                 game_grid()
                 display(gbase)
@@ -158,11 +161,11 @@ while True:
             gameDisplay.blit(txt, TextRect)
             pygame.display.update()
 
-            if click[0]==1:
+            if click== True:
                 clear_base()
         
         if 750 > mouse[0] > 550 and 450 > mouse[1] > 350:
-            if click[0]==1:
+            if click == True:
                 score = check(score)
                 
     start_page(score)
